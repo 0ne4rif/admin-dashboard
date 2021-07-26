@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsBarChart } from 'src/data/data';
 import { DashboardService } from '../../services/dashboard.service';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
@@ -26,15 +25,12 @@ export class BarChartComponent implements OnInit {
 
   getBarChartData() {
     this._service.getDashboardMetaData().subscribe((response) => {
-      console.log(response);
+      console.log('Successful get bar chart data', response);
       let chartBar = response.chartBar;
-      console.log(chartBar);
 
       const xLabels = chartBar.map((chartBar: { name: any; }) => chartBar.name);
       const yValue = chartBar.map((chartBar: { value: any; }) => chartBar.value);
 
-      console.log("Y value", yValue);
-      console.log("X labels", xLabels);
       const dataset = {
         labels: xLabels,
         datasets: [{
@@ -73,6 +69,8 @@ export class BarChartComponent implements OnInit {
         }
       });
 
+    }, (error) => {
+      console.log('Error getting bar chart data', error);
     });
 
   }
