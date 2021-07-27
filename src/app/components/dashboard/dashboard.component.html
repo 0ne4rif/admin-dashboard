@@ -1,14 +1,14 @@
-<div *ngIf="currentUser; else loggedOut">
+<div *ngIf="currentUser; else loggedOut" class="content-center">
   <header class="text-gray-100 bg-gray-900 body-font shadow w-full">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <nav class="flex lg:w-2/5 flex-wrap items-start text-base md:ml-auto">
-        <a class="mr-5 border-b border-transparent">Dashboard</a>
+        <a class="mr-5 font-medium">Dashboard</a>
       </nav>
       <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-        </svg>
+        </svg>-->
         <a class="text-white cursor-pointer py-2 px-3 rounded-lg" (click)="logout()">
           Sign Out
         </a>
@@ -16,26 +16,26 @@
     </div>
   </header>
 
-  <h2>Overview</h2>
+  <h2 class="ml-14 font-bold text-2xl m-3">Overview</h2>
   <!-- component -->
   <div class="flex flex-row justify-center w-full">
-    <div class="w-1/2 m-3 border border-gray-500 rounded shadow-lg overflow-auto">
+    <div class="w-2/3 ml-14 mr-6 border border-gray-400 rounded">
       <app-bar-chart></app-bar-chart>
     </div>
-    <div class="w-1/2 m-3 border border-gray-500 rounded shadow-lg overflow-auto">
+    <div class="w-2/3 mr-14 ml-6 border border-gray-400 rounded overflow-scroll">
       <app-pie-chart></app-pie-chart>
     </div>
   </div>
 
 
-  <h2>User List</h2>
-  <table class="border-collapse w-full">
+  <h2 class="ml-14 font-bold text-2xl m-3">User List</h2>
+  <table class="border-collapse w-11/12 mx-auto mb-6">
     <thead>
       <tr>
-        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">#</th>
-        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">First Name</th>
-        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Last Name</th>
-        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User Name</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">#</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">First Name</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Last Name</th>
+        <th class="p-3 font-bold bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User Name</th>
       </tr>
     </thead>
     <tbody>

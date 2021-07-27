@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as d3 from 'd3';
 import { DashboardService } from '../../services/dashboard.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 
@@ -23,23 +24,33 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    this.getDashMeta();
+    this.getTableUsers();
+
   }
+
+  getLoggedUser = () => {
+    const loggedUser: Object = this.token.getUser();
+    console.log('User from Homepage:', loggedUser);
+    if (Object.keys(loggedUser).length === 0) {
+      this.router.navigate(['login']);
+    }
+  };
 
   logout(): void {
     this.token.signOut();
     this.router.navigate(['login']);
   }
 
-  getDashMeta() {
+  getTableUsers() {
     this._service.getDashboardMetaData().subscribe((response) => {
-      console.log("Successful getting dashboard metadata", response);
-      this.chartDonut = response[0].chartDonut;
-      this.chartBar = response[0].chartbar;
-      this.tableUsers = response[0].tableUsers;
-
-    }, (error) => {
-      console.log("Fail getting dashboard metadata", error);
+      console.log("Successful getting users data", response);
+     
+      this.tableUsers = response.tableUsers;
+      console.log(response.tableUsers);
+    }, (error) => {;
+      console.log("Fail getting users data", error);
     });
   }
+
+  
 }
