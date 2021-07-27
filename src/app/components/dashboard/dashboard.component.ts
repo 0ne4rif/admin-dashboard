@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as d3 from 'd3';
 import { DashboardService } from '../../services/dashboard.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 
