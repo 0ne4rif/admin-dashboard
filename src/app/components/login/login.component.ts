@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required, Validators.email],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
   }
@@ -43,15 +43,17 @@ export class LoginComponent implements OnInit {
     if (data.username && data.password) {
       this._service.login(data.username, data.password).subscribe((response) => {
         this.isLoggedIn = true;
-        this.tokenStorage.saveToken(response.accessToken);
+        this.tokenStorage.saveToken(response);
         this.tokenStorage.saveUser(response);
         this.roles = this.tokenStorage.getUser().roles;
         console.log('Login success', response);
+        window.alert('Login success!');
         this.router.navigate(['dashboard']);
       }, (err) => {
         this.isLoginFailed = true;
         this.errorMessage = err.error.message
         console.log('Login fail', err);
+        window.alert('Login failed!');
       });
     }
   }
