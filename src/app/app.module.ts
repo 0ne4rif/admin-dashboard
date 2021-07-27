@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,11 +23,9 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatInputModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
   ],
   providers: [
     {
