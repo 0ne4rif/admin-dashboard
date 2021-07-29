@@ -1,6 +1,11 @@
-# AdminDashboard
+# Admin Dashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+
+## Getting Started
+git clone https://github.com/0ne4rif/admin-dashboard
+##
+run `npm install && npm start`
 
 ## Development server
 
